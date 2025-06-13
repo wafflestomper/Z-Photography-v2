@@ -473,4 +473,21 @@ main {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.baseball-page .sport-hero,
+body.basketball-page .sport-hero,
+body.football-page .sport-hero,
+body.futsal-page .sport-hero,
+body.indoor-track-page .sport-hero,
+body.lacrosse-page .sport-hero,
+body.rugby-page .sport-hero,
+body.soccer-page .sport-hero,
+body.squash-page .sport-hero,
+body.tennis-page .sport-hero,
+body.track-and-field-page .sport-hero,
+body.wrestling-page .sport-hero,
+body.events-page .sport-hero,
+body.portraits-page .sport-hero {
+    padding-top: 90px;
 } 

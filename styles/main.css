@@ -1076,4 +1076,11 @@ address p {
 
 #about-teaser > div > div.about-teaser-text > h3 {
     text-align: left;
+}
+
+.sport-explore-highlight {
+  color: #0596f7;
+  font-weight: bold;
+  text-align: center;
+  display: block;
 } 
