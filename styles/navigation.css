@@ -210,4 +210,9 @@
     padding: 1.5rem 0;
     background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px);
+}
+
+.mobile-only { display: none; }
+@media (max-width: 768px) {
+  .mobile-only { display: block !important; }
 } 
