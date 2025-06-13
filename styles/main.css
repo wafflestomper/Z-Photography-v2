@@ -912,7 +912,7 @@ address p {
 }
 
 #beyond-the-game {
-    padding-top: var(--section-spacing);
+    padding-top: 0 !important;
     padding-bottom: 0;
 }
 
