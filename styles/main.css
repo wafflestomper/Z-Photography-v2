@@ -1107,4 +1107,32 @@ address p {
   max-width: 480px;
   border-radius: 8px;
   margin-top: 25px;
+}
+
+@media (max-width: 768px) {
+  .coverage-seasons-section .container,
+  .coverage-trust-section .container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: left !important;
+  }
+  .coverage-section-image,
+  .coverage-section-image-right {
+    float: none !important;
+    margin: 0 0 20px 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block;
+  }
+  h2, .coverage-section-title {
+    font-size: 1.3rem !important;
+    text-align: center !important;
+    margin: 0 0 20px 0 !important;
+  }
+  .sports-specialist-section img {
+    float: none !important;
+    display: block !important;
+    margin: 20px auto !important;
+    max-width: 100% !important;
+  }
 } 
