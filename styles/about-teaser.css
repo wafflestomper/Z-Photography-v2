@@ -1,0 +1,126 @@
+.about-teaser-section {
+    padding: 0; /* Removed all padding */
+    background-color: transparent; /* Remove the gray background */
+}
+
+.about-teaser-section .section-container {
+    padding: 0;
+    max-width: 1200px;
+    margin: 25px auto; /* Keep margin for desktop */
+}
+
+.about-teaser-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Space between image and text */
+    padding: 0;
+    margin: 0;
+}
+
+.about-teaser-image {
+    flex-shrink: 0;
+    margin-bottom: 0; /* Remove any bottom margin */
+    padding-bottom: 0; /* Remove any bottom padding */
+    line-height: 0; /* Remove any line-height spacing */
+}
+
+.about-teaser-image img {
+    width: 40vw;
+    max-width: 480px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: block; /* Remove any inline spacing */
+    margin-bottom: 0; /* Remove any bottom margin */
+}
+
+.about-teaser-text {
+    flex: 1; /* Allows the text to take up remaining space */
+}
+
+.about-teaser-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+.about-teaser-text h3 {
+    font-size: 1rem;
+    color: #666; /* Lighter gray color */
+    margin: 0;
+}
+
+.about-teaser-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Adjust padding for this specific section's container */
+.about-teaser-section .section-container {
+    padding: 0; /* Remove all padding */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-teaser-section .section-container {
+        max-width: none;
+        margin: 0;
+    }
+
+    .about-teaser-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+    }
+
+    .about-teaser-image {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        order: 1;
+    }
+
+    .about-teaser-image img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        display: block;
+    }
+
+    .about-teaser-text {
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box;
+        order: 2;
+    }
+
+    .about-teaser-text h2 {
+        font-size: 1.3rem !important;
+        margin: 0;
+        padding: 18px 0;
+    }
+
+    .about-teaser-text h3 {
+        font-size: 1rem;
+        color: #666; /* Lighter gray color */
+        margin: 0;
+    }
+
+    .about-teaser-text p {
+        font-size: 1em;
+        text-align: justify;
+        text-align-last: left; /* This ensures the last line is left-aligned */
+    }
+
+    .about-teaser-text .cta-button {
+        margin-bottom: 10px; /* Added 10px margin below the button */
+    }
+} 

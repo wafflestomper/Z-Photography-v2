@@ -1,0 +1,179 @@
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Increased height for desktop */
+    overflow: hidden;
+    margin-top: -45px; /* Move up by 45px */
+    padding-bottom: 0; /* Remove bottom padding */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-carousel.loaded {
+    opacity: 1; /* Show when loaded */
+}
+
+/* Tiny Slider Customization */
+.my-slider {
+    height: 600px; /* Updated height */
+}
+
+.tns-outer {
+    position: relative;
+    height: 600px; /* Updated height */
+}
+
+.tns-inner {
+    height: 100%;
+}
+
+.tns-slider {
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+}
+
+/* Default style for all slide items (img.tns-item) */
+img.tns-item {
+    /* background-color: #000; Removed, as it doesn't help with img opacity tint */
+    opacity: 1; /* Images are fully opaque by default */
+    filter: brightness(1); /* Default to full brightness */
+    transition: filter 0s ease-in-out; /* Instant filter change, matching user opacity preference */
+    /* Other styles like width/height are handled by TinySlider or inline */
+}
+
+/* Remove any specific .tns-slide-active opacity/filter rules from CSS here */
+
+/* Navigation Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none; /* Allow clicks to pass through the container */
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    transition: all var(--transition-speed);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: auto; /* Re-enable clicks for the arrows */
+}
+
+.carousel-arrow.prev {
+    left: 50px;
+}
+
+.carousel-arrow.next {
+    right: 50px;
+}
+
+.carousel-arrow:hover {
+    background: #0066cc;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero-carousel {
+        margin-top: -45px; /* Move up by 45px */
+        display: block; /* Show on mobile */
+        height: 325px; /* Fixed height for mobile */
+        padding-bottom: 0; /* Remove bottom padding */
+    }
+
+    .my-slider {
+        height: 325px; /* Match container height */
+    }
+
+    .tns-outer {
+        height: 325px; /* Match container height */
+    }
+
+    .carousel-arrow {
+        width: 32px; /* Smaller arrows for mobile */
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .carousel-arrow.prev {
+        left: 10px; /* Closer to edges on mobile */
+    }
+
+    .carousel-arrow.next {
+        right: 10px; /* Closer to edges on mobile */
+    }
+
+    /* Adjust image sizing for mobile */
+    .tns-slider img {
+        max-height: 325px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* Capture heading styles for mobile */
+    .capture-h3 {
+        display: block !important;
+        text-align: center;
+        font-size: 1rem;
+        margin: 0 auto !important;
+        color: #888 !important;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        max-width: 600px;
+        width: auto !important;
+        position: relative;
+        z-index: 1;
+        background: none;
+        padding: 1rem 0;
+        border-radius: 0;
+        white-space: normal !important;
+    }
+
+    body > main > h3 {
+        background: #000 !important;
+        color: #fff !important;
+        padding: 1rem;
+        margin: 0;
+        display: block !important;
+    }
+}
+
+/* Base capture heading styles */
+.capture-h3 {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 auto; /* Center horizontally */
+    color: #555;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    display: block; /* Show by default on desktop */
+    white-space: nowrap; /* Keep text on one line */
+    width: 100%; /* Ensure full width for centering */
+}
+
+body > main > h3 {
+    display: none !important;
+} 

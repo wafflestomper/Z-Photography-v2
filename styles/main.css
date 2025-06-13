@@ -1,0 +1,1078 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f8f8f8;
+    --accent-color: #2c5282;
+    --text-color: #333333;
+    --border-color: #e2e8f0;
+    --transition-speed: 0.3s;
+    --container-width: 1200px;
+    --section-spacing: 4rem;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Adjusted overscroll-behavior to allow pull-to-refresh */
+}
+
+html {
+    overscroll-behavior-y: auto; /* Allow default y-axis overscroll (e.g., pull-to-refresh) */
+}
+
+body {
+    overscroll-behavior-y: contain; /* Prevent scroll chaining from body if it becomes scrollable */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 100px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Services Section */
+.services-overview {
+    padding: var(--section-spacing) 0;
+    background-color: var(--primary-color);
+}
+
+.services-overview h2 {
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+    font-size: 2.5rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--primary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Portfolio Section */
+.portfolio-preview {
+    padding: var(--section-spacing) 0;
+}
+
+.portfolio-preview h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Take Your Shot Section */
+.take-your-shot-section {
+    background: #181a1b;
+    color: #fff;
+    padding: var(--section-spacing) 0;
+}
+#take-your-shot h2 {
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+}
+.take-your-shot-section h2 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    color: #fff;
+}
+.take-your-shot-section .section-subtitle {
+    color: #fff;
+    margin-bottom: 2.5rem;
+    max-width: 60vw;
+    width: 60vw;
+}
+.section-subtitle {
+    text-align: center;
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+.sport-card {
+    background: #232526;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    padding: 1.5rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.sport-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+}
+.sport-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sport-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s, opacity 0.3s;
+    display: block;
+}
+.sport-card span {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .take-your-shot-section {
+        padding: 0;
+    }
+    .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+    .sport-image {
+        width: 70px;
+        height: 70px;
+    }
+    .sport-card span {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+}
+
+.footer-bottom a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+
+address {
+    font-style: normal;
+    color: #ccc;
+}
+
+address p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+.service-hero.dark {
+    background-color: #181a1b;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.service-hero.dark h1 {
+    margin: 10px 0;
+}
+
+.service-hero.dark h3 {
+    margin: 10px 0;
+}
+
+.horizontal-accordion {
+  display: flex;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #181a1b;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.accordion-card {
+  flex: 1 1 0;
+  min-width: 60px;
+  max-width: 120px;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #232526;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0;
+  border-right: 1px solid #222;
+}
+
+.accordion-card::after {
+  content: attr(data-sport);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+}
+
+.accordion-card:hover::after,
+.accordion-card:focus::after,
+.accordion-card.active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accordion-card[data-href="/sports/baseball.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/baseball.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/baseball.html"]:hover img,
+.accordion-card[data-href="/sports/baseball.html"]:focus img,
+.accordion-card[data-href="/sports/baseball.html"].active img {
+  transform: translateY(-25%);
+}
+
+.accordion-card:last-child {
+  border-right: none;
+}
+
+.accordion-card.active,
+.accordion-card:hover,
+.accordion-card:focus {
+  flex: 3 1 0;
+  max-width: 350px;
+  background: #2c5282;
+  color: #fff;
+  z-index: 2;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+.accordion-card:not(:hover):not(.active) {
+  opacity: 0.7;
+}
+
+.accordion-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s;
+  display: block;
+}
+
+.accordion-card[data-href="/sports/basketball.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/basketball.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: calc(50% - 20px) 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/basketball.html"]:hover img,
+.accordion-card[data-href="/sports/basketball.html"]:focus img,
+.accordion-card[data-href="/sports/basketball.html"].active img {
+  transform: translateY(-25%);
+  object-position: center 0;
+}
+
+.accordion-card[data-href="/sports/basketball.html"]:hover,
+.accordion-card[data-href="/sports/basketball.html"]:focus,
+.accordion-card[data-href="/sports/basketball.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/baseball.html"]:hover,
+.accordion-card[data-href="/sports/baseball.html"]:focus,
+.accordion-card[data-href="/sports/baseball.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/football.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/football.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: calc(100% + 20px) 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/football.html"]:hover img,
+.accordion-card[data-href="/sports/football.html"]:focus img,
+.accordion-card[data-href="/sports/football.html"].active img {
+  transform: translateY(-25%);
+  object-position: right 0;
+}
+
+.accordion-card[data-href="/sports/football.html"]:hover,
+.accordion-card[data-href="/sports/football.html"]:focus,
+.accordion-card[data-href="/sports/football.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/futsal.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/futsal.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/futsal.html"]:hover img,
+.accordion-card[data-href="/sports/futsal.html"]:focus img,
+.accordion-card[data-href="/sports/futsal.html"].active img {
+  transform: translateY(-25%);
+}
+
+.accordion-card[data-href="/sports/futsal.html"]:hover,
+.accordion-card[data-href="/sports/futsal.html"]:focus,
+.accordion-card[data-href="/sports/futsal.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/indoor-track.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/indoor-track.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/indoor-track.html"]:hover img,
+.accordion-card[data-href="/sports/indoor-track.html"]:focus img,
+.accordion-card[data-href="/sports/indoor-track.html"].active img {
+  transform: translateY(-25%);
+}
+
+.accordion-card[data-href="/sports/indoor-track.html"]:hover,
+.accordion-card[data-href="/sports/indoor-track.html"]:focus,
+.accordion-card[data-href="/sports/indoor-track.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/lacrosse.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/lacrosse.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: calc(50% + 60px) 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/lacrosse.html"]:hover img,
+.accordion-card[data-href="/sports/lacrosse.html"]:focus img,
+.accordion-card[data-href="/sports/lacrosse.html"].active img {
+  transform: translateY(-25%);
+  object-position: left 0;
+}
+
+.accordion-card[data-href="/sports/lacrosse.html"]:hover,
+.accordion-card[data-href="/sports/lacrosse.html"]:focus,
+.accordion-card[data-href="/sports/lacrosse.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/rugby.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/rugby.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: -10px 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/rugby.html"]:hover img,
+.accordion-card[data-href="/sports/rugby.html"]:focus img,
+.accordion-card[data-href="/sports/rugby.html"].active img {
+  transform: translateY(-25%);
+  object-position: left 0;
+}
+
+.accordion-card[data-href="/sports/rugby.html"]:hover,
+.accordion-card[data-href="/sports/rugby.html"]:focus,
+.accordion-card[data-href="/sports/rugby.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/soccer.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/soccer.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: calc(100% + 20px) 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/soccer.html"]:hover img,
+.accordion-card[data-href="/sports/soccer.html"]:focus img,
+.accordion-card[data-href="/sports/soccer.html"].active img {
+  transform: translateY(-25%);
+  object-position: right 0;
+}
+
+.accordion-card[data-href="/sports/soccer.html"]:hover,
+.accordion-card[data-href="/sports/soccer.html"]:focus,
+.accordion-card[data-href="/sports/soccer.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/squash.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/squash.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: center 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/squash.html"]:hover img,
+.accordion-card[data-href="/sports/squash.html"]:focus img,
+.accordion-card[data-href="/sports/squash.html"].active img {
+  transform: translateY(-25%);
+  object-position: center 0;
+}
+
+.accordion-card[data-href="/sports/squash.html"]:hover,
+.accordion-card[data-href="/sports/squash.html"]:focus,
+.accordion-card[data-href="/sports/squash.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/tennis.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/tennis.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: -50px 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/tennis.html"]:hover img,
+.accordion-card[data-href="/sports/tennis.html"]:focus img,
+.accordion-card[data-href="/sports/tennis.html"].active img {
+  transform: translateY(-25%);
+  object-position: left 0;
+}
+
+.accordion-card[data-href="/sports/tennis.html"]:hover,
+.accordion-card[data-href="/sports/tennis.html"]:focus,
+.accordion-card[data-href="/sports/tennis.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/track-and-field.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/track-and-field.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: center 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/track-and-field.html"]:hover img,
+.accordion-card[data-href="/sports/track-and-field.html"]:focus img,
+.accordion-card[data-href="/sports/track-and-field.html"].active img {
+  transform: translateY(-25%);
+  object-position: center 0;
+}
+
+.accordion-card[data-href="/sports/track-and-field.html"]:hover,
+.accordion-card[data-href="/sports/track-and-field.html"]:focus,
+.accordion-card[data-href="/sports/track-and-field.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/wrestling.html"] {
+  height: 350px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.accordion-card[data-href="/sports/wrestling.html"] img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: center 0;
+  transition: transform 0s;
+  transform: translateY(25%);
+}
+
+.accordion-card[data-href="/sports/wrestling.html"]:hover img,
+.accordion-card[data-href="/sports/wrestling.html"]:focus img,
+.accordion-card[data-href="/sports/wrestling.html"].active img {
+  transform: translateY(-25%);
+  object-position: center 0;
+}
+
+.accordion-card[data-href="/sports/wrestling.html"]:hover,
+.accordion-card[data-href="/sports/wrestling.html"]:focus,
+.accordion-card[data-href="/sports/wrestling.html"].active {
+  flex: 4 1 0;
+  max-width: 400px;
+  background-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .horizontal-accordion {
+    height: 120px;
+  }
+  .accordion-card {
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+  }
+  .accordion-card.active,
+  .accordion-card:hover,
+  .accordion-card:focus {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .take-your-shot-section .horizontal-accordion {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .take-your-shot-section .accordion-card,
+  .take-your-shot-section .accordion-card.active,
+  .take-your-shot-section .accordion-card:hover,
+  .take-your-shot-section .accordion-card:focus {
+    max-width: 100%;
+    min-width: 100%;
+    aspect-ratio: 1/1;
+    height: auto !important;
+    border-right: none;
+    border-bottom: 1px solid #222;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    flex: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  .take-your-shot-section .accordion-card:last-child {
+    border-bottom: none;
+    margin-bottom: 1rem;
+  }
+  .take-your-shot-section .accordion-card img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+    transition: none !important;
+    padding: 0;
+    margin: 0;
+    display: block;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+  }
+  .take-your-shot-section .accordion-card::after {
+    content: attr(data-sport);
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .take-your-shot-section .accordion-card[data-href*="baseball"] img {
+    content: url('/images/sport-menu/m-baseball.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="basketball"] img {
+    content: url('/images/sport-menu/m-basketball.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="football"] img {
+    content: url('/images/sport-menu/m-football.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="futsal"] img {
+    content: url('/images/sport-menu/m-futsal.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="indoor-track"] img {
+    content: url('/images/sport-menu/m-indoor-track.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="lacrosse"] img {
+    content: url('/images/sport-menu/m-lacrosse.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="rugby"] img {
+    content: url('/images/sport-menu/m-rugby.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="soccer"] img {
+    content: url('/images/sport-menu/m-soccer.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="squash"] img {
+    content: url('/images/sport-menu/m-squash.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="tennis"] img {
+    content: url('/images/sport-menu/m-tennis.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="track-and-field"] img {
+    content: url('/images/sport-menu/m-outdoor-track.jpg');
+  }
+  .take-your-shot-section .accordion-card[data-href*="wrestling"] img {
+    content: url('/images/sport-menu/m-wrestling.jpg');
+  }
+}
+
+#beyond-the-game {
+    padding-top: var(--section-spacing);
+    padding-bottom: 0;
+}
+
+#beyond-the-game h2 {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+#beyond-the-game .section-subtitle {
+    max-width: 60vw;
+    width: 60vw;
+}
+
+.seo-h1 {
+  color: #000;
+  font-size: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.01;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+#take-your-shot h3 {
+    text-align: center;
+    color: #bbb;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1rem !important; /* Match the about section h3 size */
+}
+
+.about-teaser-text h2 {
+    margin-bottom: 0;
+}
+
+.about-teaser-text h3 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.capture-h3,
+.about-teaser-text h3 {
+    color: #555;
+    margin-top: 0;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Remove the desktop-only styles for capture-h3 */
+.capture-h3 {
+    display: block; /* Show on desktop */
+}
+
+@media (max-width: 768px) {
+    .capture-h3 {
+        display: block !important; /* Show on mobile */
+        text-align: center;
+        color: #bbb;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1rem !important;
+    }
+
+    .take-your-shot-section {
+        padding: 0; /* Remove the 40px padding */
+    }
+
+    #beyond-the-game {
+        padding-top: 0;
+    }
+
+    #beyond-the-game > div > p {
+        margin-top: 0;
+        text-align: justify !important;
+        text-align-last: left !important;
+    }
+
+    body > main > h3 {
+        background: #000;
+        color: #fff;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    #take-your-shot h2 {
+        font-size: 1.3rem !important; /* Match the about section h2 size */
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 18px 0;
+    }
+
+    #beyond-the-game h2 {
+        font-size: 1.3rem !important; /* Match the about section h2 size */
+        text-align: center;
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    .sports-description {
+        text-align: justify !important; /* Override the center alignment */
+        text-align-last: left !important; /* Ensure the last line is left-aligned */
+        color: #fff !important; /* Change text color to white */
+    }
+
+    .about-teaser-text p {
+        text-align: justify !important;
+        text-align-last: left !important;
+        padding: 0 1rem;
+        margin: 0;
+    }
+
+    #about-teaser > div > div.about-teaser-text > h3 {
+        text-align: center !important;
+    }
+
+    #about-teaser > div > div.about-teaser-text > p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #0066cc;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0052a3;
+    color: #fff;
+}
+
+.sports-description, .portraits-description {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sports-description {
+    color: #BBBBBB;
+}
+
+.portraits-description {
+    color: #666666;
+}
+
+#about-teaser > div > div.about-teaser-text > h3 {
+    text-align: left;
+} 
