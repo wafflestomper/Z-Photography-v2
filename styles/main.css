@@ -1083,4 +1083,28 @@ address p {
   font-weight: bold;
   text-align: center;
   display: block;
+}
+
+.coverage-section-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.coverage-section-paragraph {
+  text-align: justify;
+}
+.coverage-section-image {
+  float: left;
+  margin-right: 25px;
+  max-width: 480px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
+.coverage-section-image-right {
+  float: right;
+  margin-left: 25px;
+  max-width: 480px;
+  border-radius: 8px;
+  margin-top: 25px;
 } 
