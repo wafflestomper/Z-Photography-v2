@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/service-page.css">
+    <link rel="stylesheet" href="styles/sport-page.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,49 +61,197 @@
     <div id="nav-placeholder"></div>
 
     <main>
-        <section class="service-hero dark" style="background-image: url('images/hero-contact.jpg');">
-            <h1>Contact Z Photography</h1>
-            <p>Let's discuss your photography needs</p>
+        <section class="sport-hero">
+            <div class="hero-image">
+                <img src="images/hero-contact.jpg" alt="Contact Z Photography">
+            </div>
+            <div class="hero-content">
+                <h1>Contact Z Photography</h1>
+                <p class="hero-subtitle">Richmond's Premier Sports Photography</p>
+            </div>
         </section>
 
+        <!-- Get In Touch Section -->
         <section class="content-section">
             <div class="section-container">
                 <div class="contact-intro">
-                    <h2>Get in Touch</h2>
-                    <p>Whether you're looking to book a sports photography session, discuss event coverage, or have any questions about my services, I'm here to help. Fill out the form below and I'll get back to you as soon as possible.</p>
+                    <h2>Get In Touch</h2>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <h3 class="center">Call or Text</h3>
+                            <p class="center">For questions or to check availability</p>
+                            <p class="center"><strong>Phone:</strong> <a href="tel:8049213855">804-921-3855</a></p>
+                            <p class="center"><strong>Email:</strong> <a href="mailto:brian@z-photography.com">brian@z-photography.com</a></p>
+                        </div>
+                        <div class="contact-card">
+                            <h3 class="center">Check My Availability</h3>
+                            <div class="center"><a href="https://calendly.com/brian-zollinhofer/30min?month=2025-06" class="cta-button" target="_blank" rel="noopener">Photography Calendar</a></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
+                <!-- Professional Contact Form -->
+                <div class="contact-form-pro">
+                    <form id="proContactForm" action="http://127.0.0.1:5000/send-inquiry" method="POST">
+                        <h3>Contact Z Photography</h3>
                         <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="pro-name">Your Name *</label>
+                            <input type="text" id="pro-name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="sports">Sports Photography</option>
-                                <option value="events">Event Photography</option>
-                                <option value="portraits">Portraits</option>
-                                <option value="headshots">Headshots</option>
-                                <option value="other">Other</option>
+                            <label for="pro-contact-method">How would you like to be contacted? *</label>
+                            <select id="pro-contact-method" name="contact-method" required onchange="handleContactMethodChange()">
+                                <option value="">Select</option>
+                                <option value="Call">Call</option>
+                                <option value="Text">Text</option>
+                                <option value="Email">Email</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="form-group" id="pro-phone-group" style="display:none;">
+                            <label for="pro-phone">Phone Number *</label>
+                            <input type="tel" id="pro-phone" name="phone">
                         </div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                        <div class="form-group" id="pro-email-group" style="display:none;">
+                            <label for="pro-email">Email Address *</label>
+                            <input type="email" id="pro-email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Type of Coverage *</label>
+                            <div class="checkbox-section">
+                                <div class="checkbox-category">
+                                    <strong>Sports:</strong>
+                                    <div class="checkbox-grid">
+                                        <label><input type="checkbox" name="coverage" value="Baseball"> Baseball</label>
+                                        <label><input type="checkbox" name="coverage" value="Basketball"> Basketball</label>
+                                        <label><input type="checkbox" name="coverage" value="Football"> Football</label>
+                                        <label><input type="checkbox" name="coverage" value="Futsal"> Futsal</label>
+                                        <label><input type="checkbox" name="coverage" value="Indoor Track"> Indoor Track</label>
+                                        <label><input type="checkbox" name="coverage" value="Lacrosse"> Lacrosse</label>
+                                        <label><input type="checkbox" name="coverage" value="Rugby"> Rugby</label>
+                                        <label><input type="checkbox" name="coverage" value="Soccer"> Soccer</label>
+                                        <label><input type="checkbox" name="coverage" value="Squash"> Squash</label>
+                                        <label><input type="checkbox" name="coverage" value="Tennis"> Tennis</label>
+                                        <label><input type="checkbox" name="coverage" value="Track & Field"> Track & Field</label>
+                                        <label><input type="checkbox" name="coverage" value="Wrestling"> Wrestling</label>
+                                        <label><input type="checkbox" id="sports-other" name="coverage" value="Other"><span>Other</span></label>
+                                    </div>
+                                    <input type="text" id="sports-other-text" name="sports-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
+                                </div>
+                                <div class="checkbox-category">
+                                    <strong>Events:</strong>
+                                    <div class="checkbox-grid">
+                                        <label><input type="checkbox" name="coverage" value="Dance Recital"> Dance Recital</label>
+                                        <label><input type="checkbox" name="coverage" value="Theater Production"> Theater Production</label>
+                                        <label><input type="checkbox" name="coverage" value="Community Event"> Community Event</label>
+                                        <label><input type="checkbox" id="events-other" name="coverage" value="Other"><span>Other</span></label>
+                                    </div>
+                                    <input type="text" id="events-other-text" name="events-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
+                                </div>
+                                <div class="checkbox-category">
+                                    <strong>Portraits:</strong>
+                                    <div class="checkbox-grid">
+                                        <label><input type="checkbox" name="coverage" value="Senior Portraits"> Senior Portraits</label>
+                                        <label><input type="checkbox" name="coverage" value="Family Portraits"> Family Portraits</label>
+                                        <label><input type="checkbox" name="coverage" value="Headshots"> Headshots</label>
+                                        <label><input type="checkbox" id="portraits-other" name="coverage" value="Other"><span>Other</span></label>
+                                    </div>
+                                    <input type="text" id="portraits-other-text" name="portraits-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-organization">Name of School/Club/Organization</label>
+                            <input type="text" id="pro-organization" name="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-date">Event Date(s)</label>
+                            <input type="text" id="pro-date" name="event-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-notes">Additional Notes or questions for Z Photography</label>
+                            <textarea id="pro-notes" name="notes" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Inquiry</button>
+                        <div id="form-message" style="margin-top:1rem;text-align:center;"></div>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Section -->
+        <section class="content-section">
+            <h2>Pricing Overview</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Sports Photography</h3>
+                    <ul>
+                        <li>Single games starting at <strong>$275</strong></li>
+                        <li>Season packages starting at <strong>$800</strong></li>
+                        <li>Tournament coverage starting at <strong>$450</strong></li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>Senior Portraits</h3>
+                    <ul>
+                        <li>Athletic senior sessions starting at <strong>$525</strong></li>
+                        <li>Classic senior portraits starting at <strong>$400</strong></li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>Event Photography</h3>
+                    <ul>
+                        <li>School productions starting at <strong>$350</strong></li>
+                        <li>Dance recitals starting at <strong>$375</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="small">All packages include professional editing, online gallery delivery, and personal usage rights.</p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>How far do you travel for events?</h4>
+                    <p>I serve the entire Richmond metro area including Henrico, Chesterfield, Short Pump, Glen Allen, and Hanover. For tournaments or special events outside this area, we can discuss travel arrangements.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What's included in sports coverage?</h4>
+                    <p>Every package includes comprehensive game coverage, professional editing with my signature bright and energetic style, online gallery delivery within 3-5 business days, and personal usage rights for families. College recruitment usage is always included.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you photograph multiple sports in one season?</h4>
+                    <p>Absolutely. Many families book season packages across different sports, and I offer discounts for multiple sport coverage of the same athlete or family.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if weather affects outdoor events?</h4>
+                    <p>I monitor weather closely and communicate with families about rescheduling when necessary. Indoor makeup games are covered under the original booking when possible.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer prints?</h4>
+                    <p>Yes, professional quality prints in various sizes are available for order directly through your online gallery, from standard photo sizes to large wall displays.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do usage rights work?</h4>
+                    <p>Families receive full personal usage rights including social media sharing, college recruitment materials, and print reproduction. Schools and organizations receive standard promotional usage rights. Extended commercial licensing is available when needed.</p>
+                </div>
+            </div>
+            <div class="response-commitment">
+                <h4>Response Commitment</h4>
+                <p>I respond to all inquiries within 24 hours during the school year, usually much sooner during evenings and weekends. Summer responses are typically within a few hours. During busy sports seasons, I book quickly, so don't wait to reach out about important games or events you want covered.</p>
+            </div>
+        </section>
+
+        <!-- About Photographer Section -->
+        <section class="content-section">
+            <div class="about-photographer">
+                <div class="about-text">
+                    <h2>About Your Photographer</h2>
+                    <p>As both a full-time educator and Richmond sports photographer, I bring unique perspective to documenting student-athletes. My competitive background through college soccer, combined with current coaching experience, helps me anticipate the moments that matter most.</p>
+                    <p>When you work with Z Photography, you're getting someone who understands both the technical demands of professional sports photography and the personal significance these moments hold for young athletes and their families.</p>
+                    <p>Ready to get started? Use any of the contact methods above, and let's discuss how to capture your team's greatest moments with the quality and care they deserve.</p>
+                    <p class="small">Z Photography | Richmond, VA<br>Professional Sports & Portrait Photography<br>Serving Richmond Metro Area Private Schools & Athletic Programs</p>
                 </div>
             </div>
         </section>
@@ -110,5 +259,56 @@
 
     <script src="js/navigation.js"></script>
     <script src="js/load-navigation.js"></script>
+    <script>
+    function handleContactMethodChange() {
+        var method = document.getElementById('pro-contact-method').value;
+        document.getElementById('pro-phone-group').style.display = (method === 'Call' || method === 'Text') ? 'block' : 'none';
+        document.getElementById('pro-phone').required = (method === 'Call' || method === 'Text');
+        document.getElementById('pro-email-group').style.display = (method === 'Email') ? 'block' : 'none';
+        document.getElementById('pro-email').required = (method === 'Email');
+    }
+
+    document.getElementById('proContactForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+        const msgDiv = document.getElementById('form-message');
+        msgDiv.textContent = 'Sending...';
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: data
+            });
+            const result = await res.json();
+            if (result.success) {
+                msgDiv.textContent = 'Thank you! Your inquiry has been sent.';
+                form.reset();
+                handleContactMethodChange();
+            } else {
+                msgDiv.textContent = 'Sorry, there was a problem sending your inquiry.';
+            }
+        } catch (err) {
+            msgDiv.textContent = 'Sorry, there was a problem sending your inquiry.';
+        }
+    };
+
+    function toggleOtherField(checkboxId, textId) {
+        var cb = document.getElementById(checkboxId);
+        var txt = document.getElementById(textId);
+        if (cb && txt) {
+            txt.style.display = cb.checked ? 'inline-block' : 'none';
+            if (!cb.checked) txt.value = '';
+        }
+    }
+    document.getElementById('sports-other').addEventListener('change', function() {
+        toggleOtherField('sports-other', 'sports-other-text');
+    });
+    document.getElementById('events-other').addEventListener('change', function() {
+        toggleOtherField('events-other', 'events-other-text');
+    });
+    document.getElementById('portraits-other').addEventListener('change', function() {
+        toggleOtherField('portraits-other', 'portraits-other-text');
+    });
+    </script>
 </body>
 </html> 

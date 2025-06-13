@@ -1043,6 +1043,7 @@ address p {
 }
 
 .cta-button {
+    font-family: 'Montserrat', sans-serif;
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
