@@ -99,11 +99,16 @@
     .contact-cards {
         flex-direction: column;
         gap: 1.2rem;
+        align-items: center;
     }
     .contact-card {
-        max-width: 100%;
+        max-width: 400px;
         width: 100%;
-        align-items: stretch;
+        margin: 0 auto 1rem auto;
+        align-items: center;
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -136,6 +141,7 @@
     width: 100%;
 }
 .contact-form-pro h3 {
+    font-family: 'Montserrat', sans-serif !important;
     text-align: center;
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -205,6 +211,7 @@
 .contact-form-pro .cta-button {
     width: 100%;
     margin-top: 1.2rem;
+    font-family: 'Open Sans', sans-serif !important;
     font-size: 1.1rem;
     padding: 0.9rem 0;
     border-radius: 6px;
@@ -302,4 +309,8 @@ h4 {
 .contact-intro > h2 {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.contact-form-pro, .contact-form-pro * {
+    font-family: 'Open Sans', sans-serif !important;
 } 
