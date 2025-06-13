@@ -90,7 +90,7 @@
 .portraits-accordion .accordion-card:nth-child(2):hover img,
 .portraits-accordion .accordion-card:nth-child(2):focus img,
 .portraits-accordion .accordion-card:nth-child(2).active img {
-  object-position: -40px center;
+  object-position: -37px center;
 }
 
 .portraits-accordion .accordion-card:nth-child(3) img {
