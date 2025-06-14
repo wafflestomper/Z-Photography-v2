@@ -958,8 +958,33 @@ address p {
     padding-top: 0;
 }
 
+.capture-h1 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background: #000;
+    padding: 1.2rem 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .capture-h1 {
+        display: block !important;
+        text-align: center;
+        color: #fff;
+        background: #000;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1rem !important;
+        padding: 1.2rem 0.5rem;
+    }
+}
+
 .capture-h3,
-.about-teaser-text h3 {
+h1.capture-h3 {
     color: #555;
     margin-top: 0;
     font-size: 1rem;
@@ -974,8 +999,9 @@ address p {
 }
 
 @media (max-width: 768px) {
-    .capture-h3 {
-        display: block !important; /* Show on mobile */
+    .capture-h3,
+    h1.capture-h3 {
+        display: block !important;
         text-align: center;
         color: #bbb;
         margin-top: 0;
