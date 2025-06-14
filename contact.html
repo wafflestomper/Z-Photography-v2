@@ -273,7 +273,7 @@
         const form = e.target;
         const data = new FormData(form);
         const msgDiv = document.getElementById('form-message');
-        msgDiv.textContent = 'Sending...';
+        msgDiv.textContent = 'Sending. Can take up to 30 seconds...';
         try {
             const res = await fetch(form.action, {
                 method: 'POST',
