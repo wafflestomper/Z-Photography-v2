@@ -163,12 +163,11 @@ class Carousel {
                 this.trackCarouselPerformance('first_image_load_time', firstImageLoadTime);
             };
 
-            // Load remaining images lazily
-            const remainingPhotos = photos.slice(1);
-            const imageLoadPromises = remainingPhotos.map(photo => {
+            // Load all images eagerly
+            const imageLoadPromises = photos.map(photo => {
                 return new Promise((resolve) => {
                     const img = document.createElement('img');
-                    img.loading = 'lazy';
+                    img.loading = 'eager';
                     img.onload = () => {
                         const aspectRatio = img.naturalWidth / img.naturalHeight;
                         const width = Math.round(600 * aspectRatio);
@@ -215,7 +214,7 @@ class Carousel {
                 autoWidth: true,
                 gutter: 0,
                 edgePadding: 150,
-                startIndex: 0,
+                startIndex: Math.floor(Math.random() * validImages.length),
                 onInit: () => {
                     this.updateSlideAppearance();
                     this.trackCarouselPerformance('slider_initialized', 1);
