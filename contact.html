@@ -18,7 +18,7 @@
     <meta property="og:title" content="Contact Z Photography - Richmond VA Sports Photographer">
     <meta property="og:description" content="Get in touch with Z Photography for professional sports photography services in Richmond, VA.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/images/photo1.jpg">
+    <meta property="og:image" content="/images/photo1.webp">
     <meta property="og:url" content="https://z-photography.com/contact.html">
     <link rel="canonical" href="https://z-photography.com/contact.html">
     <link rel="icon" href="/images/z-favicon.png" type="image/png">
@@ -63,7 +63,7 @@
     <main>
         <section class="sport-hero">
             <div class="hero-image">
-                <img src="images/hero-contact.jpg" alt="Contact Z Photography">
+                <img src="images/hero-contact.webp" alt="Contact Z Photography">
             </div>
             <div class="hero-content">
                 <h1>Contact Z Photography</h1>
@@ -92,7 +92,7 @@
 
                 <!-- Professional Contact Form -->
                 <div class="contact-form-pro">
-                    <form id="proContactForm" action="https://z-photography-contact.onrender.com/send-inquiry" method="POST">
+                    <form id="proContactForm" action="https://formsubmit.co/bd116e22a1eda7c0b32b90a04c87f0c6" method="POST">
                         <h3>Contact Z Photography</h3>
                         <div class="form-group">
                             <label for="pro-name">Your Name *</label>
@@ -171,6 +171,8 @@
                             <label for="pro-notes">Additional Notes or questions for Z Photography</label>
                             <textarea id="pro-notes" name="notes" rows="4"></textarea>
                         </div>
+                        <input type="hidden" name="_next" value="https://z-photography.com/thank-you.html">
+                        <input type="text" name="_honey" style="display:none">
                         <button type="submit" class="cta-button">Send Inquiry</button>
                         <div id="form-message" style="margin-top:1rem;text-align:center;"></div>
                     </form>
@@ -267,30 +269,6 @@
         document.getElementById('pro-email-group').style.display = (method === 'Email') ? 'block' : 'none';
         document.getElementById('pro-email').required = (method === 'Email');
     }
-
-    document.getElementById('proContactForm').onsubmit = async function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
-        const msgDiv = document.getElementById('form-message');
-        msgDiv.textContent = 'Sending. Can take up to 30 seconds...';
-        try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                body: data
-            });
-            const result = await res.json();
-            if (result.success) {
-                msgDiv.textContent = 'Thank you! Your inquiry has been sent.';
-                form.reset();
-                handleContactMethodChange();
-            } else {
-                msgDiv.textContent = 'Sorry, there was a problem sending your inquiry.';
-            }
-        } catch (err) {
-            msgDiv.textContent = 'Sorry, there was a problem sending your inquiry.';
-        }
-    };
 
     function toggleOtherField(checkboxId, textId) {
         var cb = document.getElementById(checkboxId);
