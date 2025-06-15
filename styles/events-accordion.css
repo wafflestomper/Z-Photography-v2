@@ -134,6 +134,9 @@
         flex-direction: column;
         gap: 1rem;
         margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
     .mobile-events-cards .accordion-card {
         background: #232526;
@@ -158,6 +161,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: flex-start;
+        box-sizing: border-box;
     }
     .mobile-events-cards .accordion-card:last-child {
         border-bottom: none;

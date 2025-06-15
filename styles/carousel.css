@@ -95,39 +95,55 @@ img.tns-item {
 /* Mobile Styles */
 @media (max-width: 768px) {
     .hero-carousel {
-        margin-top: -45px; /* Move up by 45px */
-        display: block; /* Show on mobile */
-        height: 325px; /* Fixed height for mobile */
-        padding-bottom: 0; /* Remove bottom padding */
+        margin-top: -45px;
+        display: block;
+        height: 325px;
+        padding-bottom: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
     }
 
     .my-slider {
-        height: 325px; /* Match container height */
+        height: 325px;
+        width: 100%;
+        max-width: 100vw;
     }
 
     .tns-outer {
-        height: 325px; /* Match container height */
+        height: 325px;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .tns-inner {
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .tns-slider {
+        width: 100%;
+        max-width: 100vw;
     }
 
     .carousel-arrow {
-        width: 32px; /* Smaller arrows for mobile */
+        width: 32px;
         height: 32px;
         font-size: 16px;
     }
 
     .carousel-arrow.prev {
-        left: 10px; /* Closer to edges on mobile */
+        left: 10px;
     }
 
     .carousel-arrow.next {
-        right: 10px; /* Closer to edges on mobile */
+        right: 10px;
     }
 
-    /* Adjust image sizing for mobile */
     .tns-slider img {
         max-height: 325px;
-        width: auto;
-        object-fit: contain;
+        width: 100%;
+        object-fit: cover;
     }
 
     /* Capture heading styles for mobile */
