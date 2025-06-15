@@ -9,12 +9,34 @@
         gtag('js', new Date());
         gtag('config', 'G-MYPD5S6E4N');
     </script>
+    
+    <!-- Web Vitals -->
+    <script type="module">
+        import {onCLS, onFID, onLCP} from 'https://unpkg.com/web-vitals@3?module';
+        
+        function sendToGoogleAnalytics({name, delta, id}) {
+            gtag('event', name, {
+                event_category: 'Web Vitals',
+                event_label: id,
+                value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                non_interaction: true,
+            });
+        }
+
+        onCLS(sendToGoogleAnalytics);
+        onFID(sendToGoogleAnalytics);
+        onLCP(sendToGoogleAnalytics);
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional sports photography in Richmond VA. Serving St. Christopher's, St. Catherine's, Collegiate with action shots, team photos, season packages.">
     <meta name="keywords" content="sports photography Richmond VA, private school photographer, St Christophers photographer, St Catherines photographer, Collegiate School photographer, action photography Richmond, team photos Virginia, sports photographer Richmond private schools, athletic photography RVA">
     <meta name="author" content="Z Photography">
     <meta name="robots" content="index, follow">
+    
+    <!-- Preload first carousel image -->
+    <link rel="preload" as="image" href="/images/soccer-header-saints-vs-collegiate-defensive-play.webp" type="image/webp">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Z Photography - Richmond VA Sports Photographer">
