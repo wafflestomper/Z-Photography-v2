@@ -1170,4 +1170,25 @@ h1.capture-h3 {
     margin: 20px auto !important;
     max-width: 100% !important;
   }
+}
+
+/* Thank You Page Mobile Styles */
+@media (max-width: 700px) {
+  .thank-you-main {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .thank-you-main .thank-you-text {
+    order: 1;
+    padding: 0 18px;
+  }
+  .thank-you-main .thank-you-ig {
+    order: 2;
+  }
+  .thank-you-main .thank-you-gallery {
+    order: 3;
+  }
+  body > main > div {
+    margin-top: -25px !important;
+  }
 } 
