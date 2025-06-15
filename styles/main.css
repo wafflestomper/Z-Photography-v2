@@ -1191,4 +1191,29 @@ h1.capture-h3 {
   body > main > div {
     margin-top: -25px !important;
   }
+}
+
+/* Desktop max-width for coverage sections (image + text together) */
+@media (min-width: 769px) {
+  body > main > section.coverage-seasons-section > div,
+  body > main > section.coverage-trust-section > div {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body > main > section.coverage-trust-section > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  body > main > section.coverage-trust-section > div > div {
+    flex: 1;
+  }
+  body > main > section.coverage-trust-section > div > img {
+    margin-left: 32px;
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 } 
