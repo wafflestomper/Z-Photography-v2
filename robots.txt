@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /junk/
+
+Sitemap: https://z-photography.com/sitemap.xml 

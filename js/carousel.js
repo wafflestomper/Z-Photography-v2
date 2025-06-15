@@ -11,6 +11,16 @@ class Carousel {
         this.init();
     }
 
+    // Add performance tracking
+    trackCarouselPerformance(metric, value) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'carousel_performance', {
+                'metric_name': metric,
+                'metric_value': value
+            });
+        }
+    }
+
     updateSlideAppearance() {
         if (!this.slider) {
             console.warn('Slider not initialized for updateSlideAppearance');
@@ -126,6 +136,7 @@ class Carousel {
 
     async init() {
         try {
+            const startTime = performance.now();
             const response = await fetch('/data/photos.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const photos = await response.json();
@@ -133,9 +144,31 @@ class Carousel {
             const sliderContainer = document.querySelector('.my-slider');
             if (!sliderContainer) throw new Error('Slider container not found');
 
-            const imageLoadPromises = photos.map(photo => {
+            // Load first image immediately
+            const firstPhoto = photos[0];
+            const firstImg = document.createElement('img');
+            firstImg.src = `/${firstPhoto.src}`;
+            firstImg.alt = firstPhoto.alt;
+            firstImg.loading = 'eager';
+            firstImg.onload = () => {
+                const aspectRatio = firstImg.naturalWidth / firstImg.naturalHeight;
+                const width = Math.round(600 * aspectRatio);
+                firstImg.style.width = `${width}px`;
+                firstImg.style.height = '600px';
+                sliderContainer.appendChild(firstImg);
+                this.heroCarousel.classList.add('loaded');
+                
+                // Track first image load time
+                const firstImageLoadTime = performance.now() - startTime;
+                this.trackCarouselPerformance('first_image_load_time', firstImageLoadTime);
+            };
+
+            // Load remaining images lazily
+            const remainingPhotos = photos.slice(1);
+            const imageLoadPromises = remainingPhotos.map(photo => {
                 return new Promise((resolve) => {
                     const img = document.createElement('img');
+                    img.loading = 'lazy';
                     img.onload = () => {
                         const aspectRatio = img.naturalWidth / img.naturalHeight;
                         const width = Math.round(600 * aspectRatio);
@@ -143,7 +176,11 @@ class Carousel {
                         img.style.height = '600px';
                         resolve(img);
                     };
-                    img.onerror = () => { console.error('Failed to load image:', photo.src); resolve(null); };
+                    img.onerror = () => { 
+                        console.error('Failed to load image:', photo.src); 
+                        this.trackCarouselPerformance('image_load_error', photo.src);
+                        resolve(null); 
+                    };
                     img.src = `/${photo.src}`;
                     img.alt = photo.alt;
                 });
@@ -151,16 +188,18 @@ class Carousel {
 
             const loadedImages = await Promise.all(imageLoadPromises);
             loadedImages.forEach(img => { if (img) sliderContainer.appendChild(img); });
-            this.heroCarousel.classList.add('loaded');
+
+            // Track total carousel initialization time
+            const totalInitTime = performance.now() - startTime;
+            this.trackCarouselPerformance('total_init_time', totalInitTime);
 
             if (typeof tns !== 'function') throw new Error('tiny-slider not loaded');
 
-            const validImages = loadedImages.filter(img => img !== null);
+            const validImages = [firstImg, ...loadedImages.filter(img => img !== null)];
             if (validImages.length === 0) {
                 console.warn('No valid images loaded for the carousel.');
                 return; 
             }
-            const randomStartIndex = Math.floor(Math.random() * validImages.length);
 
             this.slider = tns({
                 container: '.my-slider',
@@ -176,8 +215,11 @@ class Carousel {
                 autoWidth: true,
                 gutter: 0,
                 edgePadding: 150,
-                startIndex: randomStartIndex,
-                onInit: this.updateSlideAppearance,
+                startIndex: 0,
+                onInit: () => {
+                    this.updateSlideAppearance();
+                    this.trackCarouselPerformance('slider_initialized', 1);
+                },
                 touch: true,
                 swipeAngle: 45,
                 preventScrollOnTouch: 'auto',
@@ -192,7 +234,10 @@ class Carousel {
                 }
             });
 
-            this.slider.events.on('transitionEnd', this.updateSlideAppearance);
+            this.slider.events.on('transitionEnd', () => {
+                this.updateSlideAppearance();
+                this.trackCarouselPerformance('slide_transition', 1);
+            });
 
             const prevArrow = document.querySelector('.carousel-arrow.prev');
             const nextArrow = document.querySelector('.carousel-arrow.next');
@@ -202,10 +247,11 @@ class Carousel {
             document.removeEventListener('keydown', this.handleKeyDown); 
             document.addEventListener('keydown', this.handleKeyDown);
 
-            console.log('Carousel initialized with manual brightness pre-dimming control.');
+            console.log('Carousel initialized with performance tracking.');
 
         } catch (error) {
             console.error('Error initializing carousel:', error);
+            this.trackCarouselPerformance('initialization_error', error.message);
         }
     }
 }
