@@ -874,40 +874,40 @@ address p {
     transform: none !important;
   }
   .take-your-shot-section .accordion-card[data-href*="baseball"] img {
-    content: url('/images/sport-menu/m-baseball.jpg');
+    content: url('/images/sport-menu/m-baseball.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="basketball"] img {
-    content: url('/images/sport-menu/m-basketball.jpg');
+    content: url('/images/sport-menu/m-basketball.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="football"] img {
-    content: url('/images/sport-menu/m-football.jpg');
+    content: url('/images/sport-menu/m-football.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="futsal"] img {
-    content: url('/images/sport-menu/m-futsal.jpg');
+    content: url('/images/sport-menu/m-futsal.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="indoor-track"] img {
-    content: url('/images/sport-menu/m-indoor-track.jpg');
+    content: url('/images/sport-menu/m-indoor-track.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="lacrosse"] img {
-    content: url('/images/sport-menu/m-lacrosse.jpg');
+    content: url('/images/sport-menu/m-lacrosse.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="rugby"] img {
-    content: url('/images/sport-menu/m-rugby.jpg');
+    content: url('/images/sport-menu/m-rugby.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="soccer"] img {
-    content: url('/images/sport-menu/m-soccer.jpg');
+    content: url('/images/sport-menu/m-soccer.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="squash"] img {
-    content: url('/images/sport-menu/m-squash.jpg');
+    content: url('/images/sport-menu/m-squash.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="tennis"] img {
-    content: url('/images/sport-menu/m-tennis.jpg');
+    content: url('/images/sport-menu/m-tennis.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="track-and-field"] img {
-    content: url('/images/sport-menu/m-outdoor-track.jpg');
+    content: url('/images/sport-menu/m-outdoor-track.webp');
   }
   .take-your-shot-section .accordion-card[data-href*="wrestling"] img {
-    content: url('/images/sport-menu/m-wrestling.jpg');
+    content: url('/images/sport-menu/m-wrestling.webp');
   }
 }
 
