@@ -92,90 +92,48 @@
 
                 <!-- Professional Contact Form -->
                 <div class="contact-form-pro">
-                    <form id="proContactForm" action="https://formsubmit.co/bd116e22a1eda7c0b32b90a04c87f0c6" method="POST">
-                        <h3>Contact Z Photography</h3>
-                        <div class="form-group">
-                            <label for="pro-name">Your Name *</label>
-                            <input type="text" id="pro-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pro-contact-method">How would you like to be contacted? *</label>
-                            <select id="pro-contact-method" name="contact-method" required onchange="handleContactMethodChange()">
-                                <option value="">Select</option>
-                                <option value="Call">Call</option>
-                                <option value="Text">Text</option>
-                                <option value="Email">Email</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="pro-phone-group" style="display:none;">
-                            <label for="pro-phone">Phone Number *</label>
-                            <input type="tel" id="pro-phone" name="phone">
-                        </div>
-                        <div class="form-group" id="pro-email-group" style="display:none;">
-                            <label for="pro-email">Email Address *</label>
-                            <input type="email" id="pro-email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label>Type of Coverage *</label>
-                            <div class="checkbox-section">
-                                <div class="checkbox-category">
-                                    <strong>Sports:</strong>
-                                    <div class="checkbox-grid">
-                                        <label><input type="checkbox" name="coverage" value="Baseball"> Baseball</label>
-                                        <label><input type="checkbox" name="coverage" value="Basketball"> Basketball</label>
-                                        <label><input type="checkbox" name="coverage" value="Football"> Football</label>
-                                        <label><input type="checkbox" name="coverage" value="Futsal"> Futsal</label>
-                                        <label><input type="checkbox" name="coverage" value="Indoor Track"> Indoor Track</label>
-                                        <label><input type="checkbox" name="coverage" value="Lacrosse"> Lacrosse</label>
-                                        <label><input type="checkbox" name="coverage" value="Rugby"> Rugby</label>
-                                        <label><input type="checkbox" name="coverage" value="Soccer"> Soccer</label>
-                                        <label><input type="checkbox" name="coverage" value="Squash"> Squash</label>
-                                        <label><input type="checkbox" name="coverage" value="Tennis"> Tennis</label>
-                                        <label><input type="checkbox" name="coverage" value="Track & Field"> Track & Field</label>
-                                        <label><input type="checkbox" name="coverage" value="Wrestling"> Wrestling</label>
-                                        <label><input type="checkbox" id="sports-other" name="coverage" value="Other"><span>Other</span></label>
-                                    </div>
-                                    <input type="text" id="sports-other-text" name="sports-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
-                                </div>
-                                <div class="checkbox-category">
-                                    <strong>Events:</strong>
-                                    <div class="checkbox-grid">
-                                        <label><input type="checkbox" name="coverage" value="Dance Recital"> Dance Recital</label>
-                                        <label><input type="checkbox" name="coverage" value="Theater Production"> Theater Production</label>
-                                        <label><input type="checkbox" name="coverage" value="Community Event"> Community Event</label>
-                                        <label><input type="checkbox" id="events-other" name="coverage" value="Other"><span>Other</span></label>
-                                    </div>
-                                    <input type="text" id="events-other-text" name="events-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
-                                </div>
-                                <div class="checkbox-category">
-                                    <strong>Portraits:</strong>
-                                    <div class="checkbox-grid">
-                                        <label><input type="checkbox" name="coverage" value="Senior Portraits"> Senior Portraits</label>
-                                        <label><input type="checkbox" name="coverage" value="Family Portraits"> Family Portraits</label>
-                                        <label><input type="checkbox" name="coverage" value="Headshots"> Headshots</label>
-                                        <label><input type="checkbox" id="portraits-other" name="coverage" value="Other"><span>Other</span></label>
-                                    </div>
-                                    <input type="text" id="portraits-other-text" name="portraits-other-text" style="display:none; margin-left: 0; margin-top: 0.3em; width: 100%;" placeholder="Please specify">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="pro-organization">Name of School/Club/Organization</label>
-                            <input type="text" id="pro-organization" name="organization">
-                        </div>
-                        <div class="form-group">
-                            <label for="pro-date">Event Date(s)</label>
-                            <input type="text" id="pro-date" name="event-date">
-                        </div>
-                        <div class="form-group">
-                            <label for="pro-notes">Additional Notes or questions for Z Photography</label>
-                            <textarea id="pro-notes" name="notes" rows="4"></textarea>
-                        </div>
-                        <input type="hidden" name="_next" value="https://z-photography.com/thank-you.html">
-                        <input type="text" name="_honey" style="display:none">
-                        <button type="submit" class="cta-button">Send Inquiry</button>
-                        <div id="form-message" style="margin-top:1rem;text-align:center;"></div>
-                    </form>
+                  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbzlQjEN9-mHjSu1P2u6xGVI5Cf8Me5vQiNWPel6qA2xHKIMk7aouTeJpVeBdK-RC9kj/exec" method="POST" target="hidden_iframe">
+                    <div class="form-group">
+                      <label for="name">Name *</label>
+                      <input type="text" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email *</label>
+                      <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="tel" name="phone" id="phone">
+                    </div>
+                    <div class="form-group">
+                      <label for="service">Photography Service *</label>
+                      <select name="service" id="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="Soccer Photography">Soccer Photography</option>
+                        <option value="Football Photography">Football Photography</option>
+                        <option value="Basketball Photography">Basketball Photography</option>
+                        <option value="Baseball Photography">Baseball Photography</option>
+                        <option value="Lacrosse Photography">Lacrosse Photography</option>
+                        <option value="Track & Field Photography">Track & Field Photography</option>
+                        <option value="Senior Portraits">Senior Portraits</option>
+                        <option value="Family Photography">Family Photography</option>
+                        <option value="Headshots">Professional Headshots</option>
+                        <option value="Event Photography">Event Photography</option>
+                        <option value="Other">Other - provide details below</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="event_date">Event/Session Date</label>
+                      <input type="date" name="event_date" id="event_date">
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Tell me about your photography needs *</label>
+                      <textarea name="message" id="message" rows="5" 
+                                placeholder="Please describe your event, number of players/subjects, location, and any specific requirements..."></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn">Send Message</button>
+                  </form>
+                  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
                 </div>
             </div>
         </section>
@@ -262,30 +220,13 @@
     <script src="js/navigation.js"></script>
     <script src="js/load-navigation.js"></script>
     <script>
-    function handleContactMethodChange() {
-        var method = document.getElementById('pro-contact-method').value;
-        document.getElementById('pro-phone-group').style.display = (method === 'Call' || method === 'Text') ? 'block' : 'none';
-        document.getElementById('pro-phone').required = (method === 'Call' || method === 'Text');
-        document.getElementById('pro-email-group').style.display = (method === 'Email') ? 'block' : 'none';
-        document.getElementById('pro-email').required = (method === 'Email');
-    }
-
-    function toggleOtherField(checkboxId, textId) {
-        var cb = document.getElementById(checkboxId);
-        var txt = document.getElementById(textId);
-        if (cb && txt) {
-            txt.style.display = cb.checked ? 'inline-block' : 'none';
-            if (!cb.checked) txt.value = '';
-        }
-    }
-    document.getElementById('sports-other').addEventListener('change', function() {
-        toggleOtherField('sports-other', 'sports-other-text');
-    });
-    document.getElementById('events-other').addEventListener('change', function() {
-        toggleOtherField('events-other', 'events-other-text');
-    });
-    document.getElementById('portraits-other').addEventListener('change', function() {
-        toggleOtherField('portraits-other', 'portraits-other-text');
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      var submitBtn = document.getElementById('submit-btn');
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      setTimeout(function() {
+        window.location.href = '/thank-you.html';
+      }, 1000);
     });
     </script>
 </body>
