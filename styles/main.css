@@ -12,7 +12,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    /* Adjusted overscroll-behavior to allow pull-to-refresh */
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 html {
@@ -20,11 +22,13 @@ html {
 }
 
 body {
-    overscroll-behavior-y: contain; /* Prevent scroll chaining from body if it becomes scrollable */
+    overscroll-behavior-y: contain;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 main {
@@ -44,6 +48,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .visually-hidden {
@@ -215,8 +221,34 @@ h1, h2, h3, h4, h5, h6 {
         --section-spacing: 3rem;
     }
 
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    main {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .section-container {
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     h2 {
         font-size: 2rem !important;
+    }
+
+    body > main > h2.capture-h2 {
+        margin-bottom: 0 !important;
+    }
+
+    #about-teaser > div > div.about-teaser-text > p {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .services-grid {
@@ -1216,4 +1248,12 @@ h1.capture-h3 {
     height: auto;
     display: block;
   }
+}
+
+/* Add this new rule to allow hero sections to break out */
+.sport-hero,
+.hero-image,
+.hero-image img {
+    max-width: none !important;
+    width: 100vw !important;
 } 

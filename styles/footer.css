@@ -2,12 +2,18 @@
     background-color: #1a1a1a;
     color: #fff;
     padding: 40px 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-grid {
@@ -17,12 +23,15 @@
     margin-bottom: 40px;
     justify-content: center;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-column {
     min-width: 200px;
+    max-width: 100%;
+    word-wrap: break-word;
+    text-align: left;
 }
 
 .footer-column h3 {
@@ -33,16 +42,20 @@
     margin-bottom: 15px;
     padding-bottom: 8px;
     border-bottom: 2px solid #333;
+    word-wrap: break-word;
 }
 
 .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .footer-column li {
     margin-bottom: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .footer-column a {
@@ -50,6 +63,8 @@
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 0.95rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .footer-column a:hover {
@@ -60,6 +75,8 @@
     color: #ccc;
     font-size: 0.95rem;
     line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .calendly-link {
@@ -98,6 +115,9 @@
     background-color: #111;
     padding: 20px 0;
     margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-bottom-content {
@@ -107,6 +127,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-bottom p {
@@ -147,19 +169,56 @@
         padding: 40px 0 0;
     }
 
+    .footer-container {
+        padding: 0;
+        width: 100%;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .footer-column {
+        min-width: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        width: 100%;
     }
 
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+        padding: 0 20px;
+        width: 100%;
     }
 
     .legal-links {
         justify-content: center;
+        width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-column h3 {
+        font-size: 1.1rem;
+        word-wrap: break-word;
+    }
+
+    .footer-column a,
+    .contact-info li {
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 

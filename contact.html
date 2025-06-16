@@ -92,7 +92,7 @@
 
                 <!-- Professional Contact Form -->
                 <div class="contact-form-pro">
-                  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbzlQjEN9-mHjSu1P2u6xGVI5Cf8Me5vQiNWPel6qA2xHKIMk7aouTeJpVeBdK-RC9kj/exec" method="POST" target="hidden_iframe">
+                  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbwSsCxBzICUmIrd5cji5YH6Fqwx4yCv_cp3DN7sjyi9lZw45iFfmRP_mvG8Qwc5nw4B/exec" method="POST" target="hidden_iframe">
                     <div class="form-group">
                       <label for="name">Name *</label>
                       <input type="text" name="name" id="name" required>
@@ -220,14 +220,34 @@
     <script src="js/navigation.js"></script>
     <script src="js/load-navigation.js"></script>
     <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      var submitBtn = document.getElementById('submit-btn');
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      setTimeout(function() {
-        window.location.href = '/thank-you.html';
-      }, 1000);
-    });
-    </script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          var submitBtn = document.getElementById('submit-btn');
+          var form = this;
+          
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
+          
+          // Track the conversion event in GA4 IMMEDIATELY
+          gtag('event', 'contact_form_submit', {
+            'event_category': 'Form',
+            'event_label': 'Contact Form Submission'
+          });
+          
+          var formData = new FormData(form);
+          
+          fetch(form.action, {
+            method: 'POST',
+            body: formData
+          }).then(function(response) {
+            window.location.href = '/thank-you.html';
+          }).catch(function(error) {
+            setTimeout(function() {
+              window.location.href = '/thank-you.html';
+            }, 2000);
+          });
+        });
+        </script>
 </body>
 </html> 

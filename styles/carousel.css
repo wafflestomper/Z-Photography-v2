@@ -3,7 +3,7 @@
     width: 100%;
     height: 600px; /* Increased height for desktop */
     overflow: hidden;
-    margin-top: -45px; /* Move up by 45px */
+    margin-top: 0px; /* Changed to 0px */
     padding-bottom: 0; /* Remove bottom padding */
     opacity: 0; /* Start hidden */
     transition: opacity 0.5s ease-in-out;
@@ -102,6 +102,11 @@ img.tns-item {
         width: 100%;
         max-width: 100vw;
         overflow: hidden;
+    }
+
+    body > main > h2.capture-h2 {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
     }
 
     .my-slider {
